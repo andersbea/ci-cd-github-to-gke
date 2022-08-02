@@ -52,7 +52,7 @@ jobs:
           name: artifact
 
       - name: Run tests
-        uses: npm run tests
+        run: npm run tests
 
   package:
     name: Package and upload
