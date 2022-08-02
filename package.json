@@ -1,0 +1,28 @@
+{
+  "name": "ci-cd-github-to-gke",
+  "version": "1.0.0",
+  "description": "A simple example project to showcase a full CI/CD flow using GitHub Actions and deploying to GKE",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersbea/ci-cd-github-to-gke.git"
+  },
+  "keywords": [
+    "gke",
+    "ci",
+    "cd",
+    "cicd",
+    "github",
+    "github-actions"
+  ],
+  "author": "Anders Bea",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/andersbea/ci-cd-github-to-gke/issues"
+  },
+  "homepage": "https://github.com/andersbea/ci-cd-github-to-gke#readme"
+}
