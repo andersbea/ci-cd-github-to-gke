@@ -51,8 +51,8 @@ jobs:
         with:
           name: artifact
 
-      - name: Run tests
-        run: npm run tests
+      - name: Run test
+        run: npm run test
 
   package:
     name: Package and upload
