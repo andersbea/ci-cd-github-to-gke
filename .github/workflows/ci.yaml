@@ -43,18 +43,10 @@ jobs:
     steps:
       - name: Download Tar Artifact
         uses: alehechka/download-tartifact@v1
-        with: 
-          path: artifact
 
-      - name: check file area
-        if: always()
-        run: ls
       - name: check file area
         if: always()
         run: ls artifact
-
-      - name: Run test
-        run: npm run test
 
   docker:
     name: Docker
