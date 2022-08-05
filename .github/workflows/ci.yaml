@@ -41,7 +41,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.PACKAGES_TOKEN }}
-      
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ghcr.io/andersbea/ci-cd-github-to-gke
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
