@@ -47,4 +47,3 @@ jobs:
         with:
           push: true
           tags: ghcr.io/andersbea/ci-cd-github-to-gke:latest
-          github-token: ${{ secrets.PACKAGES_TOKEN }}
