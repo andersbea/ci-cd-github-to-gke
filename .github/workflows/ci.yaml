@@ -31,18 +31,30 @@ jobs:
       - name: Install node modules
         run: npm ci
 
-      - name: Upload Tar Artifact
-        uses: alehechka/upload-tartifact@v1
+      - name: Pack files
+        run: |
+          tar -cvf artifact.tar \
+            node_modules/ \
+            src/ \
+            Dockerfile \
+            package-lock.json \
+            package.json
+
+      - name: Upload artifact
+        uses: actions/download-artifact@v2
         with:
-          path: .
+          path: artifact.tar
 
   test:
     name: Test
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download Tar Artifact
-        uses: alehechka/download-tartifact@v1
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+
+      - name: Unpack files and remove artifact
+        run: (tar -xvf artifact.tar && rm artifact.tar)
 
       - name: check file area
         if: always()
@@ -53,8 +65,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Download Tar Artifact
-        uses: alehechka/download-tartifact@v1
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+
+      - name: Unpack files and remove artifact
+        run: (tar -xvf artifact.tar && rm artifact.tar)
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
