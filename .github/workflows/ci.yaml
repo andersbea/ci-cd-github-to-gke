@@ -54,11 +54,7 @@ jobs:
         uses: actions/download-artifact@v2
 
       - name: Unpack files and remove artifact
-        run: (tar -xvf artifact/artifact.tar && rm artifact.tar)
-
-      - name: check file area
-        if: always()
-        run: ls 
+        run: (tar -xvf artifact/artifact.tar && rm -r artifact)
 
       - name: Install node modules
         run: npm test
@@ -74,7 +70,7 @@ jobs:
           path: .
 
       - name: Unpack files and remove artifact
-        run: (tar -xvf artifact.tar && rm artifact.tar)
+        run: (tar -xvf artifact/artifact.tar && rm -r artifact)
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
