@@ -46,6 +46,13 @@ jobs:
         with: 
           path: artifact
 
+      - name: check file area
+        if: always()
+        run: ls
+      - name: check file area
+        if: always()
+        run: ls artifact
+
       - name: Run test
         run: npm run test
 
