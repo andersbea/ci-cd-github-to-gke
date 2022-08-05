@@ -43,10 +43,8 @@ jobs:
     steps:
       - name: Download Tar Artifact
         uses: alehechka/download-tartifact@v1
-
-      - name: check file area
-        if: always()
-        run: ls -l
+        with: 
+          path: artifact
 
       - name: Run test
         run: npm run test
