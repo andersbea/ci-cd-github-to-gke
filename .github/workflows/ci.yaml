@@ -46,4 +46,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: andersbea/ci-cd-github-to-gke:latest
+          tags: ghcr.io/andersbea/ci-cd-github-to-gke:latest
+          github-token: ${{ secrets.PACKAGES_TOKEN }}
